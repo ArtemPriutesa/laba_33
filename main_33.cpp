@@ -7,11 +7,12 @@ using namespace std;
 int main()
 {
     vector<employee> list_employee; // Порожній вектор для співробітників
-    string name, department, search_depart;
+    string search_depart;
     int choice;
 
     while (true) {
         interface();
+        cin >> choice; // Зчитування вибору користувача
 
         switch (choice) {
         case 1: {
@@ -52,10 +53,10 @@ int main()
             if (list_employee.empty()) {
                 cout << "No employees to search." << endl;
             } else {
-                cout << "search_depart: ";
+                cout << "Enter department to search: ";
                 cin >> search_depart;
                 float salary_dep = salary_by_department(list_employee, search_depart);
-                cout << endl << "Total Salary in Department: " << salary_dep << endl;
+                cout << "Total Salary in Department: " << salary_dep << endl;
             }
             break;
         }

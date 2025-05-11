@@ -1,6 +1,21 @@
 #include "head_33.h"
 #include <algorithm> // Для std::sort
 
+// Конструктор за замовчуванням
+employee::employee() : c_name(""), c_department(""), c_year_employment(0), c_salary(0), c_premium(0.0f) {}
+
+// Конструктор з параметрами
+employee::employee(string name, string department, int year_employment, int salary)
+    : c_name(name), c_department(department), c_year_employment(year_employment), c_salary(salary), c_premium(0.0f) {}
+
+void employee::print_info() const {
+    cout << "Name: " << c_name << endl;
+    cout << "Department: " << c_department << endl;
+    cout << "Year of Employment: " << c_year_employment << endl;
+    cout << "Salary: " << c_salary << endl;
+    cout << "Premium: " << c_premium << endl;
+}
+
 void interface() {
     cout << "Employee Management System" << endl;
     cout << "1. Add Employee" << endl;
@@ -9,6 +24,7 @@ void interface() {
     cout << "4. Sort Employee by Year of Employment" << endl;
     cout << "5. Total Salary by Department" << endl;
     cout << "6. Exit" << endl;
+    cout << "Enter your choice: ";
 }
 
 void add_employee(vector<employee>& list_employee) {
@@ -47,12 +63,4 @@ float salary_by_department(const vector<employee>& list_employee, const string& 
         }
     }
     return total_salary;
-}
-
-void employee::print_info() const {
-    cout << "Name: " << c_name << endl;
-    cout << "Department: " << c_department << endl;
-    cout << "Year of Employment: " << c_year_employment << endl;
-    cout << "Salary: " << c_salary << endl;
-    cout << "Premium: " << c_premium << endl;
 }
